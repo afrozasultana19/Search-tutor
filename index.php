@@ -1,3 +1,5 @@
+ <?php
+include("includes/conection.php");?>
 <?php
 include("includes/header.php");?>
 <!DOCTYPE html>
