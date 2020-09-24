@@ -30,7 +30,7 @@
         <a class="nav-link" href="#">Find Tutor</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Hire a Tutor</a>
+        <a class="nav-link" href="publish-circular.php">Hire a Tutor</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Find Tution</a>
@@ -42,7 +42,7 @@
         <a class="nav-link" href="#">Contact us</a>
       </li>
        <li class="nav-item">
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="registerpage.php" >
               Registration
             </a>
         </li>
