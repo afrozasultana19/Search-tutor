@@ -20,7 +20,7 @@
   </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-primary|secondary|success|danger|warning|info|light|dark bg-primary|secondary|success|danger|warning|info|light|dark static-top">
-  <a class="navbar-brand" href="#"> <i class="fa fa-home"></i>HOME</a>
+  <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i>HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,9 +42,7 @@
         <a class="nav-link" href="#">Contact us</a>
       </li>
        <li class="nav-item">
-            <a class="nav-link" href="registerpage.php" >
-              Registration
-            </a>
+         <a class="nav-link" href="registerpage.php">Sign-Up</a>  
         </li>
       </ul>
   </div>

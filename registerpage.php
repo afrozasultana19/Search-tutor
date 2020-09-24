@@ -24,7 +24,7 @@ include("includes/header.php"); ?>
 	<section>
 	     <div id="imagecover">
 	     	<h2>SIGN IN PAGE</h2>
-		   <div class="center"><a href="tutor-signup.php"><button type="button" class="btn btn-dark btn-lg">As a Tutor</button></a>
+		   <div class="center"><a href="signup_tutor.php"><button type="button" class="btn btn-dark btn-lg">As a Tutor</button></a>
 			<a href="#"><button type="button" class="btn btn-dark btn-lg">As a Student</button></a></div>
 	     </div>
 	</section>
