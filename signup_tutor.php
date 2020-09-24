@@ -1,8 +1,42 @@
 <?php include("includes/header.php");?>
-<?php require("includes/conection.php");?>
+<?php require_once 'connection.php';
+?>
+<?php
+if(isset($_POST["insert"])){
+
+$tutor_fisrtname= $_POST['fname'] ;
+$tutor_lastname= $_POST['lname'] ;
+$tutor_username= $_POST['uname'] ;
+$tutor_dob= $_POST['dob'] ;
+$tutor_gender= $_POST['gender'] ;
+$city= $_POST['city'] ;
+$state= $_POST['state'] ;
+$level_study= $_POST['level_study'] ;
+$name_of_ins= $_POST['name_of_ins'] ;
+$session_of_stdudy= $_POST['session'] ;
+$dept= $_POST['dept'] ;
+$semester= $_POST['semester'] ;
+$email= $_POST['email'] ;
+$pass1= $_POST['pass1'] ;
+$confirmpass= $_POST['pass2'] ;
+
+$sql="INSERT INTO tbl_user_as_tutor(fname,lname,uname,dob,gender,city,state,level_study, 	name_of_ins,session,dept,semester,email,pass1,pass2) VALUES('$tutor_fisrtname','$tutor_lastname','$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$level_study','$name_of_ins','$session_of_stdudy','$dept','$semester','$email','$pass1','$confirmpass')";
+$result=mysqli_query($conn,$sql);
+if($result){
+	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+  <strong>successfully added!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+header('location:login.php'); }
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	    <title>sign in page as tutor</title>
 		<meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.min.css">
@@ -13,7 +47,7 @@
 		
 			<section class="container-fluid ">
 			<h3 class="text-center">Sign up as a Tutor</h3>
-			<form action="" method="post">
+			<form  method=post action="signup_tutor.php" >
 				<div class="form-group row">
 			    <label class="col-sm-2 col-form-label">First Name </label>
 			    <div class="col-sm-10">
@@ -134,7 +168,7 @@
 			    <div class="col-sm-10">
 			      <input type="password" class="form-control" name="pass1" required="">
 			      <small class="form-text text-muted">
-  Your password must be 8-20 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  Your password must be 8 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 </small>
 			    </div>
 			  </div>
@@ -144,7 +178,7 @@
 			    <div class="col-sm-10">
 			      <input type="password" class="form-control" name="pass2" required="">
 			      <small class="form-text text-muted">
-  Your password must be 8-20 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+  Your password must be 8 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 </small>
 			    </div>
 			  </div>
@@ -160,7 +194,7 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+  <button type="submit" name="insert" id="submit" class="btn btn-primary" >Submit form</button>
 			</form>
 			</section>	
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
