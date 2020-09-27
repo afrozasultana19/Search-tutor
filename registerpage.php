@@ -12,8 +12,8 @@ include("includes/header.php"); ?>
 	   <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/th.css">
 	  <style type="text/css">
-	  	#imagecover{
-        background-image: url("pic/Cool-3d-Abstract-Tile-Squares-Background-Blue.jpg");
+	  	.imagecover{
+        background-image: url("pic/blue-3d-modern-background-design_53876-87397.jpg");
         background-size: cover;
         background-repeat: no-repeat;
       )
@@ -22,7 +22,7 @@ include("includes/header.php"); ?>
       </head>
 <body>
 	<section>
-	     <div id="imagecover">
+	     <div class="imagecover">
 	     	<h2>SIGN IN PAGE</h2>
 		   <div class="center"><a href="signup_tutor.php"><button type="button" class="btn btn-dark btn-lg">As a Tutor</button></a>
 			<a href="#"><button type="button" class="btn btn-dark btn-lg">As a Student</button></a></div>

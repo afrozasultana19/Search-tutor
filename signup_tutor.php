@@ -2,7 +2,7 @@
 <?php require_once 'connection.php';
 ?>
 <?php
-if(isset($_POST["insert"])){
+if(isset($_POST["submit"])){
 
 $tutor_fisrtname= $_POST['fname'] ;
 $tutor_lastname= $_POST['lname'] ;
@@ -17,8 +17,8 @@ $session_of_stdudy= $_POST['session'] ;
 $dept= $_POST['dept'] ;
 $semester= $_POST['semester'] ;
 $email= $_POST['email'] ;
-$pass1= $_POST['pass1'] ;
-$confirmpass= $_POST['pass2'] ;
+$pass1= $_POST['pass'] ;
+$confirmpass= $_POST['pass'] ;
 
 $sql="INSERT INTO tbl_user_as_tutor(fname,lname,uname,dob,gender,city,state,level_study, 	name_of_ins,session,dept,semester,email,pass1,pass2) VALUES('$tutor_fisrtname','$tutor_lastname','$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$level_study','$name_of_ins','$session_of_stdudy','$dept','$semester','$email','$pass1','$confirmpass')";
 $result=mysqli_query($conn,$sql);
@@ -29,7 +29,8 @@ if($result){
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
-header('location:login.php'); }
+ echo "success";
+  }
     
 }
 ?>
@@ -47,7 +48,7 @@ header('location:login.php'); }
 		
 			<section class="container-fluid ">
 			<h3 class="text-center">Sign up as a Tutor</h3>
-			<form  method=post action="signup_tutor.php" >
+			<form  method=post action="" >
 				<div class="form-group row">
 			    <label class="col-sm-2 col-form-label">First Name </label>
 			    <div class="col-sm-10">
@@ -55,6 +56,7 @@ header('location:login.php'); }
 			             name="fname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="fname"
 			             required=""
 			             >
 			    </div>
@@ -66,6 +68,7 @@ header('location:login.php'); }
 			             name="lname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="lname"
 			             required=""
 			             >
 			    </div>
@@ -78,11 +81,9 @@ header('location:login.php'); }
 			             name="uname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id-"uname"
 			             required=""
 			             >
-			      <small class="form-text text-muted">
-  User name must be contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
 			    </div>
 			 </div>
 			 
@@ -95,6 +96,7 @@ header('location:login.php'); }
 			             name="dob"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="dob"
 			             required=""
 			             >
 			    </div>
@@ -104,13 +106,13 @@ header('location:login.php'); }
 			    <div class="col-sm-10 row">
 			    <div class="col-sm-1"></div>
 			     <div class="form-check col-sm-2">
-				  <input class="form-check-input" type="radio" name="gender"  value="male">
+				  <input class="form-check-input" type="radio" name="gender" id="gender"  value="male">
 				  <label class="form-check-label" >
 				   Male
 				  </label>
 				</div>
 				<div class="form-check col-sm-2">
-				  <input class="form-check-input" type="radio" name="gender"  value="female">
+				  <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
 				  <label class="form-check-label" >
 				   Female
 				  </label>
@@ -123,10 +125,10 @@ header('location:login.php'); }
 			    <div class="col-sm-10">
 			     <div class="form-row">
 				    <div class="col-7">
-				      <input type="text" class="form-control" name="city" placeholder="City">
+				      <input type="text" class="form-control" name="city" placeholder="City" id="city">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" name="state" placeholder="State">
+				      <input type="text" class="form-control" name="state" placeholder="State" id="city">
 				    </div>
 				  </div>
 			    </div>
@@ -141,45 +143,39 @@ header('location:login.php'); }
               
               <div class="form-group">
 				    <label>Name of Institute</label>
-				    <input type="text" class="form-control"  name="name_of_ins">
+				    <input type="text" class="form-control"  name="name_of_ins" id="institute">
 				   
               </div>
               <div class="form-group form-row">
 			    <div class="col">
-			      <input type="text" class="form-control" name="session" placeholder="Session">
+			      <input type="text" class="form-control" name="session" placeholder="Session" id="session">
 			    </div>
 			    <div class="col">
-			      <input type="text" class="form-control" name="dept" placeholder="Department">
+			      <input type="text" class="form-control" name="dept" placeholder="Department" id="dept">
 			    </div>
 			    <div class="col">
-			      <input type="text" class="form-control" name="semester" placeholder="Semester">
+			      <input type="text" class="form-control" name="semester" placeholder="Semester" id="semester">
 			    </div>
 			  </div>
               
               <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">Email</label>
 			    <div class="col-sm-10">
-			      <input type="email" class="form-control" name="email" required="">
+			      <input type="email" class="form-control" name="email" required="" id="email">
 			    </div>
 			  </div>
               
               <div class="form-group row">
 			    <label  class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
-			      <input type="password" class="form-control" name="pass1" required="">
-			      <small class="form-text text-muted">
-  Your password must be 8 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
+			      <input type="password" class="form-control" name="pass" required="" id="pass1">
 			    </div>
 			  </div>
   
               <div class="form-group row">
 			    <label  class="col-sm-2 col-form-label">Confirm Password</label>
 			    <div class="col-sm-10">
-			      <input type="password" class="form-control" name="pass2" required="">
-			      <small class="form-text text-muted">
-  Your password must be 8 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
+			      <input type="password" class="form-control" name="pass" required="" id="pass2">
 			    </div>
 			  </div>
 
@@ -194,7 +190,7 @@ header('location:login.php'); }
       </div>
     </div>
   </div>
-  <button type="submit" name="insert" id="submit" class="btn btn-primary" >Submit form</button>
+  <button type="submit" name="submit" id="submit" class="btn btn-primary" >Submit form</button>
 			</form>
 			</section>	
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
