@@ -11,15 +11,22 @@ include("includes/header.php");?>
       <link rel="stylesheet" href="css/footer.css">
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/th.css">
+      <style type="text/css">
+      .container1{
+        background-image: url("pic/depositphotos_85604526-stock-illustration-triangle-blue-background-with-light.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      )
+     }
+ </style>
 </head>
 <body>
-<div class="jumbotron">
-  <h1 class="display-4">You want to hire a tutor!</h1>
-</div>
+<div class="container1">
 	<div class="container" style="background-color:  #ffffcc">
+            <h1 class="text-center"><strong><u>STUDENT INFORMATION</u></strong> </h1>
+            <br>
 		<div class="fl-leftt">
 			<form class="big-contact-form" action="" method="post" autocomplete="off">
-<div class="fl-left"><h1 class="text-center">STUDENT INFORMATION </h1></div>
 <div class="fl-right"><h3><small>Already have a parent account? <a href="login.php">Login First</a></small></h3></div>
 <p>
   <input class="form-control" name="username" placeholder="User Name (5 to 15 Character)" value="" />  
@@ -111,6 +118,7 @@ include("includes/header.php");?>
 
 </form>
 		</div>
+  </div>
 	</div>
 
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity=" sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
