@@ -15,14 +15,18 @@ else{
 	if($user_type == "hometutor"){
 	$sql="SELECT uname,pass1 FROM tbl_user_as_tutor WHERE uname='$user' AND pass1='$pass'";
 	$result=mysqli_query($conn,$sql);
-    $get_user_name = mysqli_fetch_assoc($result);
+    $get_user_name1 = mysqli_fetch_assoc($result);
     header("location:index.php") ;
+    $_SESSION['user_login1'] = $get_user_name1;
+
 }
 if($user_type == "student"){
 	$sql2="SELECT uname,pass1 FROM tbl_user_as_student WHERE suname='$user' AND pass1='$pass'";
 	$result1=mysqli_query($conn,$sql2);
-    $get_user_name = mysqli_fetch_assoc($result1);
+    $get_user_name2 = mysqli_fetch_assoc($result1);
     header("location:index.php") ;
+    $_SESSION['user_login2'] = $get_user_name2;
+
 }
 header("location:index.php") ;
 }
