@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>homepage</title>
-	 <meta charset="utf-8">
+		 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
    <link rel="stylesheet" href="css/main.css">
    <link rel="stylesheet" href="css/footer.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/th.css">
+
 </head>
 <body>
 <header><div class="container-fluid">
@@ -15,7 +17,9 @@
     <img src="pic/image.png" width="100" height="70">
   </div>
   <div class="col-md-2 col-sm-6 text-right">
-   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <a title="Login" href="#" data-toggle="modal" data-target="#"> <i class="fa fa-sign-in"></i> Login</a> </div> 
+   <a href="#"> <img src="pic/fb-logo.png"  width="15" height="15"></a>
+    <a href="#"> <img src="pic/insta-logo.png" width="15" height="15"></a>
+   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <a title="Login" href="login.php" data-toggle="modal" data-target="login.php"> <i class="fa fa-sign-in"></i> Login</a> </div> 
      </div>
   </div>
 </div>
