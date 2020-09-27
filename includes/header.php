@@ -40,10 +40,10 @@
         <a class="nav-link" href="#">Find Tution</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="about.php">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact us</a>
+        <a class="nav-link" href="contact.php">Contact us</a>
       </li>
        <li class="nav-item">
          <a class="nav-link" href="registerpage.php">Sign-Up</a>  

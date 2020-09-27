@@ -29,7 +29,7 @@ if($result){
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
- echo "success";
+ header("locayion:login.php");
   }
     
 }
