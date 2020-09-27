@@ -25,7 +25,7 @@ include("includes/header.php"); ?>
 	     <div class="imagecover">
 	     	<h2>SIGN IN PAGE</h2>
 		   <div class="center"><a href="signup_tutor.php"><button type="button" class="btn btn-dark btn-lg">As a Tutor</button></a>
-			<a href="#"><button type="button" class="btn btn-dark btn-lg">As a Student</button></a></div>
+			<a href="signup_student.php"><button type="button" class="btn btn-dark btn-lg">As a Student</button></a></div>
 	     </div>
 	</section>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
