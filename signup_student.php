@@ -1,8 +1,40 @@
 <?php include("includes/header.php");?>
-<?php require("includes/conection.php");?>
+<?php require("connection.php");?>
+<?php
+if(isset($_POST["submit"])){
+
+$student_fisrtname= $_POST['fname'] ;
+$student_lastname= $_POST['lname'] ;
+$student_username= $_POST['suname'] ;
+$student_dob= $_POST['dob'] ;
+$student_gender= $_POST['gender'] ;
+$city= $_POST['city'] ;
+$state= $_POST['state'] ;
+$contactno=$_POST['Contactnumber'] ;
+$email= $_POST['email'] ;
+$pass1= $_POST['pass'] ;
+$confirmpass= $_POST['pass'] ;
+
+
+
+$sql="INSERT INTO tbl_user_as_student(fname,lname,suname,dob,gender,city,state,contactnum,email,pass1,pass2) VALUES('$student_fisrtname','$student_lastname','$student_username','$student_dob','$student_gender','$city','$state','$contactno','$email','$pass1','$confirmpass')";
+$result=mysqli_query($conn,$sql);
+if($result){
+	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+  <strong>successfully added!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+header("locayion:login.php");
+ }
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>sign in page as student</title>
 		<meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.min.css">
@@ -12,29 +44,32 @@
 	<body>
 			<section class="container-fluid ">
 			<h3 class="text-center">Sign up as a Student</h3>
-			<form action="" method="post">
+			<br>
+						<p class="text-right">Already have student acount <a href="login.php">Login</a></p>
+			<form  method=post action="signup_student.php">
 				<div class="form-group row">
-			    <label class="col-sm-2 col-form-label">First Name </label>
-			    <div class="col-sm-10">
+			    <label class="col-sm-1 col-form-label">First Name </label>
+			    <div class="col-md-5">
 			      <input type="text" 
 			             name="fname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="fname"
 			             required=""
 			             >
 			    </div>
-			    </div>
-			    <div class="form-group row">
-			    <label class="col-sm-2 col-form-label">Last Name </label>
-			    <div class="col-sm-10">
+			    <label class="col-sm-1 col-form-label">Last Name </label>
+			    <div class="col-md-5">
 			      <input type="text" 
 			             name="lname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="lname"
 			             required=""
 			             >
 			    </div>
-			  </div>
+			    </div>
+			    
 			 
 			 <div class="form-group row">
 			 	<label class="col-sm-2 col-form-label">Student User Name </label>
@@ -43,16 +78,13 @@
 			             name="suname"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="suname"
 			             required=""
 			             >
-			      <small class="form-text text-muted">
-  User name must be contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
 			    </div>
 			 </div>
-			 
-			 
-			 
+		
+
 			    <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">Date of Birth </label>
 			    <div class="col-sm-10">
@@ -60,22 +92,23 @@
 			             name="dob"
 			             class="form-control" 
 			             placeholder="write here"
+			             id="dob"
 			             required=""
 			             >
 			    </div>
 			    </div>
 			    <div class="form-group row">
-			    <label class="col-sm-2 col-form-label">Gender   </label>	
+			    <label class="col-sm-2 col-form-label"> Gender  </label>	
 			    <div class="col-sm-10 row">
 			    <div class="col-sm-1"></div>
 			     <div class="form-check col-sm-2">
-				  <input class="form-check-input" type="radio" name="gender"  value="male">
+				  <input class="form-check-input" type="radio" name="gender"  value="male" id="gender">
 				  <label class="form-check-label" >
 				   Male
 				  </label>
 				</div>
 				<div class="form-check col-sm-2">
-				  <input class="form-check-input" type="radio" name="gender"  value="female">
+				  <input class="form-check-input" type="radio" name="gender"  value="female" id="gender">
 				  <label class="form-check-label" >
 				   Female
 				  </label>
@@ -88,52 +121,45 @@
 			    <div class="col-sm-10">
 			     <div class="form-row">
 				    <div class="col-7">
-				      <input type="text" class="form-control" name="city" placeholder="City">
+				      <input type="textarea" class="form-control" name="city" placeholder="City" id="city">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" name="state" placeholder="State">
+				      <input type="text" class="form-control" name="state" placeholder="State" id="state">
 				    </div>
 				  </div>
 			    </div>
 			   </div> 
-			
-			
-		
-		<h4 class="text-center">Educational Description</h4>
-			   <div class="form-group">
-				    <label>Level of Study</label>
-				    <input type="text" class="form-control"  name="level_study" placeholder="School/Collage/University...">
-				   
-              </div>
-              
-              <div class="form-group">
-				    <label>Name of Institute</label>
-				    <input type="text" class="form-control"  name="name_of_ins">
-			  </div>
+			   <div class="form-group row">
+			 	<label class="col-sm-2 col-form-label">Contact Number </label>
+			 	<div class="col-sm-10">
+			      <input type="text" 
+			             name="Contactnumber"
+			             class="form-control" 
+			             placeholder="write here"
+			             id="Contactnumber"
+			             required=""
+			             >
+			    </div>
+			 </div>
 			  <div class="form-group row">
 			    <label class="col-sm-2 col-form-label">Email</label>
 			    <div class="col-sm-10">
-			      <input type="email" class="form-control" name="email" required="">
+			      <input type="email" class="form-control" name="email" required="" id="email">
 			    </div>
 			  </div>
-              
               <div class="form-group row">
 			    <label  class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
-			      <input type="password" class="form-control" name="pass1" required="">
-			      <small class="form-text text-muted">
-  Your password must be 8-20 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
+			      <input type="password" class="form-control" name="pass" required="" id="pass1">
+			
 			    </div>
 			  </div>
   
               <div class="form-group row">
 			    <label  class="col-sm-2 col-form-label">Confirm Password</label>
 			    <div class="col-sm-10">
-			      <input type="password" class="form-control" name="pass2" required="">
-			      <small class="form-text text-muted">
-  Your password must be 8-20 character, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-</small>
+			      <input type="password" class="form-control" name="pass2" required="" id="pass">
+			  
 			    </div>
 			  </div>
 
@@ -148,7 +174,7 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+  <button class="btn btn-primary" type="submit" name="submit" id="submit">Submit form</button>
 			</form>
 			</section>
 		  </div>
