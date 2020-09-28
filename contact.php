@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="boxed boxedp4">
 					<div class="map">
-					   			 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.691518545536!2d90.38625211445601!3d23.75837749438962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8a6b7dfe4ab%3A0x79c9303a0caba27e!2s43R%2C+12+Indira+Rd%2C+Dhaka+1215!5e0!3m2!1sen!2sbd!4v1538353037630" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+					   			 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.691518545536!2d90.38625211445601!3d23.75837749438962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8a6b7dfe4ab%3A0x79c9303a0caba27e!2s43R%2C+12+Indira+Rd%2C+Dhaka+1215!5e0!3m2!1sen!2sbd!4v1538353037630" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 					   		</div>
 
                     <div class="row contactv2 text-center">
