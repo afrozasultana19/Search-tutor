@@ -26,7 +26,7 @@
 
                             <div class="post-meta">
                                 <ul class="list-inline">
-                                    <li><i class="fa fa-calendar"></i> 16-Dec-2018</li>                                    
+                                    <li><i class="fa fa-calendar"></i> 16-september-2020</li>                                    
                                     <li class="fl-right"><a href="#" title="Deshtutor"><i class="fa fa-eye"></i> Views   1549 </a></li>
                                 </ul>
                             </div><!-- end post-meta -->
@@ -50,7 +50,7 @@
 
                             <div class="post-meta">
                                 <ul class="list-inline">
-                                    <li><i class="fa fa-calendar"></i> 29-Oct-2018</li>                                    
+                                    <li><i class="fa fa-calendar"></i> 16-september-2020</li>                                    
                                     <li class="fl-right"><a href="" title="William Carey International School"><i class="fa fa-eye"></i> Views   1079 </a></li>
                                 </ul>
                             </div><!-- end post-meta -->
@@ -75,7 +75,7 @@ To d... <br>
 
                             <div class="post-meta">
                                 <ul class="list-inline">
-                                    <li><i class="fa fa-calendar"></i> 04-Oct-2018</li>                                    
+                                    <li><i class="fa fa-calendar"></i>16-september-2020</li>                                    
                                     <li class="fl-right"><a href="#" title="School of Light"><i class="fa fa-eye"></i> Views   995 </a></li>
                                 </ul>
                             </div><!-- end post-meta -->
