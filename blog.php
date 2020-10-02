@@ -60,7 +60,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="blog-box">
                             <div class="image-wrap entry">		<div class="directory-thumb">						
-                                <img src="pic/index2.jpg" alt="School of Light" class="img-responsive">
+                                <img src="pic/index.jpg" alt="School of Light" class="img-responsive">
                                 <div class="magnifier">
                                      <a href="" title="School of Light"><i class="flaticon-add"></i></a>                             
                                 </div>
