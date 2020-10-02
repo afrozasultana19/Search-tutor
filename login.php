@@ -1,5 +1,7 @@
 <?php require_once 'connection.php'; ?>
-<?php 
+<?php
+
+
 if(isset($_POST["login_user"])){
     $user=$_POST['uname'];
     $pass=$_POST['pass1']; 
@@ -12,23 +14,82 @@ if(isset($_POST["login_user"])){
   </button>
 </div>";}
 else{ 
-	if($user_type == "hometutor"){
-	$sql="SELECT uname,pass1 FROM tbl_user_as_tutor WHERE uname='$user' AND pass1='$pass'";
-	$result=mysqli_query($conn,$sql);
-    $get_user_name1 = mysqli_fetch_assoc($result);
-    header("location:index.php") ;
-    $_SESSION['user_login1'] = $get_user_name1;
-
+  if($user_type == "hometutor"){
+ $username_check="SELECT * FROM tbl_user_as_tutor WHERE uname='$user' AND pass1='$pass'";
+  $result=mysqli_query($conn,$username_check);
+  $user_count=mysqli_num_rows($result);
+  if($user_count){
+    $user_pass=mysqli_fetch_assoc($result);
+    $db_pass = $user_pass['pass1'];
+    $user_as_tutor = $user_pass['uname'];
+    if($db_pass){
+      header("location:index.php");
+    }
+    else{
+      echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>password incorrect!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+    }
+  }
+  else{
+     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>invalid user!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+  }
 }
 if($user_type == "student"){
-	$sql2="SELECT uname,pass1 FROM tbl_user_as_student WHERE suname='$user' AND pass1='$pass'";
-	$result1=mysqli_query($conn,$sql2);
-    $get_user_name2 = mysqli_fetch_assoc($result1);
-    header("location:index.php") ;
-    $_SESSION['user_login2'] = $get_user_name2;
+ $username_st="SELECT * FROM tbl_user_as_student WHERE suname='$user' AND pass1='$pass'";
+  $qury=mysqli_query($conn,$username_st);
+  $user_ct=mysqli_num_rows($qury);
+  if($user_ct){
+    $user_pass2 =mysqli_fetch_assoc($qury);
+    $db_pass2 = $user_pass2['pass1'];
+     $user_as_student = $user_pass2['suname'];
+    if($db_pass2==TRUE && $user_as_student){
+      header("location:index.php");
+    }
+    else{
+      echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>password incorrect!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+    }
+  }
+  else{
+     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>invalid user!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+  }
 
 }
-header("location:index.php") ;
+if($user_type == "admin"){
+$sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
+  $admin=mysqli_query($conn,$sql);
+  if($admin){
+   echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>successfull!</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+  }
+  else{
+     echo "<script>Invalid</script>";
+
+  }
+
+}
 }
    } ?>
 <?php include("includes/header.php");?>
