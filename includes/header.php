@@ -19,7 +19,7 @@
   <div class="col-md-2 col-sm-6 text-right">
    <a href="#"> <img src="pic/fb-logo.png"  width="15" height="15"></a>
     <a href="#"> <img src="pic/insta-logo.png" width="15" height="15"></a>
-   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <a title="Login" href="login.php" data-toggle="modal" data-target="login.php"> <i class="fa fa-sign-in"></i> Login</a> </div> 
+   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <button><a title="Login" href="login.php" data-toggle="modal" data-target="login.php"> <i class="fa fa-sign-in"></i> Login</a></button></div> 
      </div>
   </div>
 </div>
