@@ -4,6 +4,8 @@
 		 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
    <link rel="stylesheet" href="css/main.css">
    <link rel="stylesheet" href="css/footer.css">
    <link rel="stylesheet" href="css/style.css">
@@ -19,7 +21,7 @@
   <div class="col-md-2 col-sm-6 text-right">
    <a href="#"> <img src="pic/fb-logo.png"  width="15" height="15"></a>
     <a href="#"> <img src="pic/insta-logo.png" width="15" height="15"></a>
-   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <button><a title="Login" href="login.php" data-toggle="modal" data-target="login.php"> <i class="fa fa-sign-in"></i> Login</a></button></div> 
+   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <button><a title="Login" href="login.php" > Login</a></button></div> 
      </div>
   </div>
 </div>

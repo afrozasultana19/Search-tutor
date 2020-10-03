@@ -95,7 +95,7 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
 <?php include("includes/header.php");?><!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login V3</title>
+  <title>Login </title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
