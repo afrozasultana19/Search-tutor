@@ -1,7 +1,28 @@
+<?php 
+session_start();
+    if(isset($_SESSION['user_tchr'])){ 
+             $user_tchr = $_SESSION['user_tchr'];
+             $user_std ="";
+           }
+   elseif(isset($_SESSION['user_stdnt'])){ 
+             $user_tchr = "";
+             $user_std = $_SESSION['user_stdnt'];}
+   else{
+    $user_tchr = "";
+   $user_std ="";
+
+
+
+ }
+    
+  ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-		 <meta charset="utf-8">
+     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -21,7 +42,22 @@
   <div class="col-md-2 col-sm-6 text-right">
    <a href="#"> <img src="pic/fb-logo.png"  width="15" height="15"></a>
     <a href="#"> <img src="pic/insta-logo.png" width="15" height="15"></a>
-   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! User <button><a title="Login" href="login.php" > Login</a></button></div> 
+   <div class="user-box"><i class="fa fa-user"></i>   Welcome !! <?php 
+                            if($user_tchr){
+                                echo $user_tchr;
+                                echo '<button><a title="Logout" href="logout.php" > Logout</a></button>';
+                               }
+                            elseif ($user_std) {
+                                 echo $user_std;
+                                echo '<button><a title="Logout" href="logout.php" > Logout</a></button>'; 
+                               }  
+                            else{
+                                echo  ' <button><a title="Login" href="login.php" > Login</a></button>';
+                               }
+
+
+
+   ?></div> 
      </div>
   </div>
 </div>
@@ -47,6 +83,19 @@
       <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact us</a>
       </li>
+      <?php
+      if($user_tchr){
+         echo ' <li class="nav-item">
+                   <a class="nav-link" href="profile.php">Tutor:'.$user_tchr.'</a>
+                </li>' ;
+      }
+      if($user_std){
+        echo ' <li class="nav-item">
+                   <a class="nav-link" href="profile.php">Student:'.$user_std.'</a>
+                </li>' ;
+      }
+       
+       ?>
        <li class="nav-item">
          <a class="nav-link" href="registerpage.php">Sign-Up</a>  
         </li>

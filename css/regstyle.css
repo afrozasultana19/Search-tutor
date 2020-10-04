@@ -185,7 +185,7 @@ h6 {
 }
 
 .p-t-180 {
-  padding-top: 180px;
+  padding-top: 80px;
 }
 
 .p-t-20 {
@@ -216,11 +216,11 @@ h6 {
 }
 
 .wrapper--w780 {
-  max-width: 780px;
+  max-width: 800px;
 }
 
 .wrapper--w680 {
-  max-width: 680px;
+  max-width: 780px;
 }
 
 /* ==========================================================================

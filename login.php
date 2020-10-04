@@ -1,7 +1,8 @@
-<?php require_once 'connection.php'; ?>
+<?php session_start(); ?>
 <?php
+session_start();
 
-
+require_once 'connection.php';
 if(isset($_POST["login_user"])){
     $user=$_POST['uname'];
     $pass=$_POST['pass1']; 
@@ -22,6 +23,7 @@ else{
     $user_pass=mysqli_fetch_assoc($result);
     $db_pass = $user_pass['pass1'];
     $user_as_tutor = $user_pass['uname'];
+    $_SESSION['user_tchr'] = $user_as_tutor;
     if($db_pass){
       header("location:index.php");
     }
@@ -51,6 +53,7 @@ if($user_type == "student"){
     $user_pass2 =mysqli_fetch_assoc($qury);
     $db_pass2 = $user_pass2['pass1'];
      $user_as_student = $user_pass2['suname'];
+     $_SESSION['user_stdnt'] = $user_as_student;
     if($db_pass2==TRUE && $user_as_student){
       header("location:index.php");
     }
@@ -92,7 +95,8 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
 }
 }
    } ?>
-<?php include("includes/header.php");?><!DOCTYPE html>
+<?php include("includes/header.php");?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Login </title>
