@@ -14,18 +14,24 @@ $email= $_POST['email'] ;
 $pass1= $_POST['pass'] ;
 $confirmpass= $_POST['pass'] ;
 
-
+if($pass1!=$confirmpass){
+    echo "password and confirmpass do not match!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+}
 
 $sql="INSERT INTO tbl_user_as_student(fname,suname,dob,gender,city,state,contactnum,email,pass1,pass2) VALUES('$student_fullname','$student_username','$student_dob','$student_gender','$city','$state','$contactno','$email','$pass1','$confirmpass')";
 $result=mysqli_query($conn,$sql);
 if($result){
-	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
   <strong>successfully added!</strong>
   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
-header("locayion:login.php");
+header("location:login.php");
  }
     
 }
@@ -58,12 +64,15 @@ header("locayion:login.php");
 
 <body>
     <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <center>><span class="title ">
+  <label>Sign Up Form</label>
+        </span></center>
         <div class="wrapper wrapper--w780">
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Student Info</h2>
-                    <form method="POST">
+                    <form method="POST" action="" autocomplete="off">
                         <div class="input-group">
                             <input class="input--style-3" type="text" placeholder="FullName" name="fname">
                         </div>

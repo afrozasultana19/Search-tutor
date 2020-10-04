@@ -14,18 +14,25 @@ $email= $_POST['email'] ;
 $pass1= $_POST['pass'] ;
 $confirmpass= $_POST['pass'] ;
 
-$sql="INSERT INTO tbl_user_as_tutor(fname,uname,dob,gender,city,state,email,pass1,pass2) VALUES('$tutor_fisrtname',,'$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$email','$pass1','$confirmpass')";
+$sql="INSERT INTO tbl_user_as_tutor(fname,uname,dob,gender,city,state,email,pass1,pass2) VALUES('$tutor_fullname','$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$email','$pass1','$confirmpass')";
 $result=mysqli_query($conn,$sql);
 if($result){
-	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+
+    if($pass1!=$confirmpass){
+    echo "password and confirmpass do not match!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+}
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
   <strong>successfully added!</strong>
   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
- header("locayion:login.php");
-  }
-    
+header("location:login.php");
+ }
 }
 ?>
 <!DOCTYPE html>
@@ -56,6 +63,9 @@ if($result){
 
 <body>
     <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <center>><span class="title ">
+  <label>Sign Up Form</label>
+        </span></center>
         <div class="wrapper wrapper--w780">
             <div class="card card-3">
                 <div class="card-heading"></div>
@@ -85,9 +95,6 @@ if($result){
                         </div>
                         <div class="input-group">
                             <input class="input--style-3" type="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" name="Contactnumber">
                         </div>
                          <div class="input-group">
                             <input class="input--style-3" type="text" placeholder="City" name="city">
@@ -120,11 +127,5 @@ if($result){
     <script src="js/global.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
-</html>
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	</body>
 </html>
 <?php include("includes/footer.php");?>
