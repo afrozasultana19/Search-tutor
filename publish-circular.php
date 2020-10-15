@@ -1,5 +1,51 @@
 <?php
 include("includes/header.php");?>
+<?php require("connection.php");?>
+<?php
+if(isset($_POST["publish_circular"])){
+    
+    $u_name=$_POST['username'];
+    $email=$_POST['email'];
+    $pass1=$_POST['pass_1'];
+    $pass2=$_POST['pass_2'];
+    $fullname=$_POST['fullname'];
+   $phone=$_POST['phone_no'];
+    $contact=$_POST['contact_ad'];
+    $ctitle=$_POST['c_title'];
+    $csub=$_POST['c_subject'];
+    $tschedule=$_POST['t_schedule'];
+    $tweek=$_POST['t_week'];
+    $nos=$_POST['nos'];
+    $fess=$_POST['t_fee'];
+    $detail=$_POST['c_details'];
+    
+    if($pass1!=$pass2){
+    echo "password and confirmpass do not match!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+}
+ 
+ $sql="INSERT INTO tbl_student_info( u_name, email, pass, con_pass, full_name, phone, street, cir_title,sub,schedul,days, num_of_std, offer_salary,details) VALUES ('$u_name','$email','$pass1','$pass2','$fullname','$phone','$contact','$ctitle',' $csub','$tschedule','$tweek','$nos','$fess','$detail')";   
+  
+  $result=mysqli_query($conn,$sql);
+if($result){
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+  <strong>successfully added!</strong>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>";
+header("location:login.php");
+ }  
+  
+  
+    
+    
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +62,7 @@ include("includes/header.php");?>
         background-image: url("pic/depositphotos_85604526-stock-illustration-triangle-blue-background-with-light.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-      )
+      
      }
  </style>
 </head>
@@ -34,9 +80,9 @@ include("includes/header.php");?>
 <p><input class="form-control" name="email" type="email" placeholder="Enter Your Email (Verification required)" value="" /> 
 </p>
 <p> 
-  <input class="form-control" type="password" name="password_1" placeholder="Choose Your Password (8 to 16 Character)" value="" /></p>
+  <input class="form-control" type="password" name="pass_1" placeholder="Choose Your Password (8 to 16 Character)" value="" /></p>
 <p>
-  <input class="form-control" type="password" name="password_2" placeholder="Reapeat Password (Same as Password field)" value=""/>
+  <input class="form-control" type="password" name="pass_2" placeholder="Reapeat Password (Same as Password field)" value=""/>
 </p>
 <input class="form-control" type="text" name="fullname" placeholder="Enter Your Full Name" value=""/>
 <input type="text" class="form-control" name="phone_no" placeholder="Enter Your Phone/Mobile" value="" />
