@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 include("header.php");?>
 <?php require("connection.php");?>
 <?php
@@ -15,11 +14,6 @@ $user_std = $_SESSION['user_stdnt'];}
 
 
 if($user_std){
-=======
-include("includes/header.php");?>
-<?php require("connection.php");?>
-<?php
->>>>>>> 19c929a9b5fd020836bceee2b2e1efeeb78ea121
 if(isset($_POST["publish_circular"])){
     
     $u_name=$_POST['username'];
@@ -37,10 +31,7 @@ if(isset($_POST["publish_circular"])){
     $fess=$_POST['t_fee'];
     $detail=$_POST['c_details'];
     
-<<<<<<< HEAD
     
-=======
->>>>>>> 19c929a9b5fd020836bceee2b2e1efeeb78ea121
     if($pass1!=$pass2){
     echo "password and confirmpass do not match!</strong>
   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -48,14 +39,8 @@ if(isset($_POST["publish_circular"])){
   </button>
 </div>";
 }
-<<<<<<< HEAD
 
   $sql="INSERT INTO tbl_student_info( u_name, email, pass, con_pass, full_name, phone, street, cir_title,sub,schedul,days, num_of_std, offer_salary,details) VALUES ('$u_name','$email','$pass1','$pass2','$fullname','$phone','$contact','$ctitle',' $csub','$tschedule','$tweek','$nos','$fess','$detail')"; 
-=======
- 
- $sql="INSERT INTO tbl_student_info( u_name, email, pass, con_pass, full_name, phone, street, cir_title,sub,schedul,days, num_of_std, offer_salary,details) VALUES ('$u_name','$email','$pass1','$pass2','$fullname','$phone','$contact','$ctitle',' $csub','$tschedule','$tweek','$nos','$fess','$detail')";   
-  
->>>>>>> 19c929a9b5fd020836bceee2b2e1efeeb78ea121
   $result=mysqli_query($conn,$sql);
 if($result){
     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -64,7 +49,6 @@ if($result){
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
-<<<<<<< HEAD
  }  
   
 
@@ -79,14 +63,6 @@ else{
     <span aria-hidden='true'>&times;</span>
   </button>
 </div>";
-=======
-header("location:login.php");
- }  
-  
-  
-    
-    
->>>>>>> 19c929a9b5fd020836bceee2b2e1efeeb78ea121
 }
 ?>
 
