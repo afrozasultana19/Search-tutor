@@ -1,5 +1,6 @@
 <?php include("header.php");?>
-<?php require("connection.php");?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +12,16 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/carousel.css">
-<link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="style.css"> 
 <link rel="stylesheet" href="css/main.css">
  <link rel="stylesheet" href="css/footer.css">
  <link rel="stylesheet" href="css/style.css">
  <link rel="stylesheet" href="css/th.css"> 
-  <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.min.css">
  
 </head>
+
 <body>
-  <section class="section gb nopadtop">
+  <section class="section gb ">
             <div class="container">
                 <div class="boxed boxedp4">
 					<div class="container">

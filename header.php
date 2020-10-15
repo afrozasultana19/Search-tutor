@@ -77,13 +77,13 @@ if(!isset($_SESSION))
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Find Tutor</a>
+        <a class="nav-link" href="find_tutor.php">Find Tutor</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="publish-circular.php">Hire a Tutor</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Find Tution</a>
+        <a class="nav-link" href="find_tuitions.php">Find Tution</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about.php">About</a>
@@ -100,7 +100,7 @@ if(!isset($_SESSION))
       }
       if($user_std){
         echo ' <li class="nav-item">
-                   <a class="nav-link" href="#">Student:'.$user_std.'</a>
+                   <a class="nav-link" href="student-profile.php">Student:'.$user_std.'</a>
                 </li>' ;
       }
        

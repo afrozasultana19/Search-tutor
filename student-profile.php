@@ -9,51 +9,15 @@ if(!isset($_SESSION))
     
   
   }
-    if(isset($_SESSION['user_tchr'])){ 
-             $user_tchr = $_SESSION['user_tchr'];
-             $user_std ="";
-            
-  
-           }
+  if(isset($_SESSION['user_stdnt'])){ 
+    $user_tchr = "";
+    $user_std = $_SESSION['user_stdnt'];}
 
-$id = isset($_GET['t_id']);
-$sql = "SELECT * FROM tbl_user_as_tutor WHERE uname='$user_tchr'";
+$sql = "SELECT * FROM tbl_user_as_student WHERE suname='$user_std'";
 $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_assoc($result);
-$tid= $row['t_id'];
 
 ?>
-<?php
-if(isset($_POST["insert"]))
-{
-
-	$check= $_FILES["images"]["tmp_name"];
-
-	if( !empty($check) && file_exists($check) )
-	{
-
-  $file = addslashes(file_get_contents($check));
-  
-   $img   =  "UPDATE tbl_user_as_tutor SET pic='$file' WHERE uname='$user_tchr'";
-  $result2 = mysqli_query( $conn, $img ) or die (mysqli_error($conn));
-  if($result2)
-  {
-      echo " <div class='alert alert-primary alert-dismissible fade show' role='alert'>
-       <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-         <span aria-hidden='true'>&times;</span>
-         <span class='sr-only'>Close</span>
-       </button>
-       <strong>submitted</strong>
-     </div> " ;
-  }
-
-
-   
-  
-	
- }
-} 
- ?>
 <html lang="en"> 
 <head>
     <!-- Required meta tags-->
@@ -62,7 +26,7 @@ if(isset($_POST["insert"]))
     
 
     <!-- Title Page-->
-    <title>Tutor Profile</title>
+    <title>Student Profile</title>
 
     <link rel="stylesheet" href="css/navhov.css">
 
@@ -71,34 +35,23 @@ if(isset($_POST["insert"]))
 <body>
   <div class="row">
 <div class="col-md-4">
-  <span><form action="" method="POST" enctype="multipart/form-data">
-  <div class="form-group" >
-		         <label for="image">Upload Image</label>
-		         <input type="file" class="form-control" id="images" name="images" >
-             </div>
-             <button type="submit" name="insert" id="insert" value="insert" class="btn btn-primary" >image upload</button>
-  </form><span>
-<br>
-<br>
 <div id="mySidenav" class="sidenav align-right">
-  <a href="tutor_details.php" id="about">About</a>
-  <a href="find_tutor.php" id="blog">Search Tution</a>
-  <a href="tutor-profile-info.php" id="projects">Settings</a>
+  <a href="circular_details.php" id="about">About</a>
+  <a href="find_tutor.php" id="blog">Search Tutor</a>
+  <a href="edit_stdnt_profile.php" id="projects">Settings</a>
+  <a href="publish-circular.php" id="contact">Publish circular</a>
+
 </div>
 </div>
 <div class="card text-left justify-content-center   col-md-8">
   <div class="card-body ">
-    <h4 class="card-title">TUTOR Profile</h4>
+    <h1 class="card-title">Student Profile</h1>
     <p class="card-text">
       <table class="table table-bordered table-striped">
     <tbody>
 <?php
               echo '<form action="" method="POST" enctype="multipart/form-data">';
-              echo '<input type="hidden" value='.$row['t_id'].' name="t_id">';
-              echo '		   
-             <tr>
-              <td><img src= "data:image/jpeg;base64,'.base64_encode($row['pic']).'" height="300" width="300" class="rounded-circle" alt="image"><h1><strong>'.$row['fname'].'</strong></h1></td>
-              </tr>';	
+              echo '<input type="hidden" value='.$row['s_id'].' name="s_id">';	
               echo '
               <tr>';
               echo '<td>NAME:      '.$row['fname'].'</td>';

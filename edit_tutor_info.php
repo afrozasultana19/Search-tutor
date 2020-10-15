@@ -48,7 +48,7 @@ if(isset($_POST["update"])){
   </div>';
   }
   else{
-    $sql2 = "UPDATE tutor_info SET  About ='($about)',levelstudy='$study',institute='$institute',dept='$dept',location='$location',scedule='$scedule',class='$class',subject='$subject',salary='$salary'
+    $sql2 = "UPDATE tutor_info SET  About ='$about',levelstudy='$study',institute='$institute',dept='$dept',location='$location',scedule='$scedule',class='$class',subject='$subject',salary='$salary'
     WHERE id=".$_POST['id'];
     $result2 = mysqli_query($conn,$sql2);
     if($result2){
@@ -71,7 +71,7 @@ if(isset($_POST["update"])){
 
     
 
-    $sql3 = "UPDATE tbl_user_as_tutor SET fname='($tutor_fullname)',uname='($tutor_username)',dob='$tutor_dob',gender='$tutor_gender',city='$city',state='$state',email='$email',pass1='$pass1',pass2='$confirmpass',contact_num='$phone'
+    $sql3 = "UPDATE tbl_user_as_tutor SET fname='$tutor_fullname',uname='$tutor_username',dob='$tutor_dob',gender='$tutor_gender',city='$city',state='$state',email='$email',pass1='$pass1',pass2='$confirmpass',contact_num='$phone'
     WHERE t_id=".$_POST['t_id'];
     $result3 = mysqli_query($conn,$sql3);
     if($result3){
@@ -161,7 +161,7 @@ $result = mysqli_query($conn,$sql);
                         </div>
                         <div class="form-group" >
                 <label for="description">About</label>
-                             <input type="text" class="form-control" id="about" name="about" value=<?php echo $row['About'] ?>>
+                             <input type="textarea" class="form-control" id="about" name="about" value=<?php echo $row['About'] ?>>
                      </div>
                        
     </div>

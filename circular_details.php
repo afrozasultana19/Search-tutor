@@ -7,18 +7,12 @@ if(!isset($_SESSION))
     
   
   }
-    if(isset($_SESSION['user_tchr'])){ 
-             $user_tchr = $_SESSION['user_tchr'];
-             $user_std ="";
-            
-  
-           }
-
-$id = isset($_GET['t_id']);
-$sql = "SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND uname='$user_tchr'";
+  if(isset($_SESSION['user_stdnt'])){ 
+    $user_tchr = "";
+    $user_std = $_SESSION['user_stdnt'];}
+$sql = "SELECT * FROM tbl_student_info LEFT JOIN tbl_user_as_student  WHERE tbl_student_info.id =tbl_user_as_student.s_id AND suname='$user_std'";
 $result = mysqli_query($conn,$sql);
-  $row = mysqli_fetch_assoc($result);
-$tid= $row['t_id'];
+$row = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -26,7 +20,7 @@ $tid= $row['t_id'];
 <!-- Delete -->
 <?php
 if (isset($_POST["delete"])){
-    $sql2 = "DELETE FROM tbl_user_as_tutor WHERE uname='$user_tchr'";
+    $sql2 = "DELETE FROM tbl_student_info WHERE suname='$user_std'";
     $result2 = mysqli_query($conn,$sql2);
     if($result2){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -83,30 +77,29 @@ if (isset($_POST["delete"])){
 <?php
 echo "<form method='POST' action=''>";
 echo'
-<input type="hidden" value='. $row['t_id'].' name="t_id">
-<span class="form-control">Full Name  :'.$row['fname'].'</span>
-<span class="form-control">Gender : '.$row['gender'].'</span>
-<span class="form-control">Date of Birth : '.$row['dob'].'</span>
-<span class="form-control">Highest Education : '.$row['levelstudy'].'</span>
-<span class="form-control">Major/ Group/ Subject : '.$row['dept'].'</span>
-<span class="form-control">Institute Name : '.$row['institute'].'</span>
-<span class="form-control">About : '.$row['About'].'</span>
-
+<div class="authorbox">
+      <div class="site-publisher clearfix"> 
+         <h4>'.$row['cir_title'].'</h4>
+           <p>'.$row['details'].'</p>
+       <div class="fl-left"><span class="green" itemprop="addressLocality"> <i class="fa fa-globe"></i>'.$row['street'].'</span><br> 
+       <i class="fa fa-user"></i> Posted by : <span itemprop="name">'.$row['u_name'].'</span> <br>
+       <i class="fa fa-clock-o"></i>'.$row['post_time'].'</div>
+       </div>
+   </div>
 
 
 <h3>TUITION DETAILS </h3>
-
-<span class="form-control">Expected Tuition Area : '.$row['location'].'</span>
-<span class="form-control">Available Tuition Schedule : '.$row['scedule'].'</span>
-<span class="form-control">Expected Students Level : '.$row['class'].'</span>
-<span class="form-control">Prefered Subject : '.$row['subject'].'</span>
-<span class="form-control">Expected Salary : '.$row['salary'].'</span>		
+<span class="form-control">Prefered Subject : '.$row['sub'].'</span>
+<span class="form-control">Tuition Schedule : '.$row['schedul'].'</span>
+<span class="form-control">Tution Days per week : '.$row['days'].'</span>
+<span class="form-control">Number of Students : '.$row['num_of_std'].'</span>
+<span class="form-control">Expected Salary : '.$row['offer_salary'].'</span>		
 
                         </div>';
-  echo "<td><a href='edit_tutor_info.php?id=".$row['t_id']." 'class='btn btn-info'>Edit</a></td>";
   echo '<td><input type = "submit" name="delete" value = "DELETE" class = "btn btn-danger"/></td>';
+  echo "<td><a href='#?id=".$row['id']." 'class='btn btn-info'>Apply</a></td>";
 
-                        
+                    
 echo "</form>";                        
                         
 ?>

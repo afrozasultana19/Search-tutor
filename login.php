@@ -153,7 +153,7 @@ $row2 = mysqli_fetch_assoc($result3);
           <input type="hidden" value=<?php echo $row2['s_id']; ?> name="s_id">
 
 
-           <span class="login100-form-title p-b-34 p-t-27"> <label>I am a :&nbsp; </label>  <input name="user_type" type="radio"  value="hometutor" required> Home Tutor &nbsp;<input name="user_type"  type="radio" value="student" required> Student:  &nbsp;<input name="user_type"  type="radio" value="admin" required>  Admin</span>
+           <span class="login100-form-title p-b-34 p-t-27"> <label>I am a :&nbsp; </label>  <input name="user_type" type="radio"  value="hometutor" required> Home Tutor &nbsp;<input name="user_type"  type="radio" value="student" required> Student  &nbsp;<input name="user_type"  type="radio" value="admin" required>  Admin</span>
 
 
           <div class="wrap-input100 validate-input" data-validate = "Enter username">

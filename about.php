@@ -42,6 +42,9 @@
 <div id="textbox">
 	<h1>Are you looking Home tutor or Tution!</h1>
 	<p>Thist is a best platform to hire a tutor,find tution.We are here to help you to find tution through online.</p>
+	<p class="text-center"> <small><span class="red">Disclaimer :</span> THis platform only share and exchange the information that is provided by the Tutors, Parents or Educational Directory members. Except email verification , hometutorbd.com does not verify any information of Tutors, Parents or Directory members. It is the members responsibility to verify the information integrity of Tutors, Parents or Educational Institutes.
+	 Hometutorbd.com is not liable or responsible for any kind of misinformation and any incident between Tutors, 
+	 Parents or Educational Institute authority. For details please review our </small> </p>
 </div>
 </body>
 </html>
