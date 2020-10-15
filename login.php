@@ -1,6 +1,10 @@
-<?php session_start(); ?>
 <?php
-session_start();
+if(!isset($_SESSION)) 
+    {     //SESSION START 
+        session_start(); 
+    
+  
+  }
 
 require_once 'connection.php';
 if(isset($_POST["login_user"])){
@@ -95,7 +99,14 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
 }
 }
    } ?>
-<?php include("includes/header.php");?>
+   <?php $sql2 = "SELECT * FROM tbl_user_as_tutor";
+$result2 = mysqli_query($conn,$sql2) or die(mysqli_error($conn));
+$row1 = mysqli_fetch_assoc($result2);
+$sql3 = "SELECT * FROM tbl_user_as_student";
+$result3 = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
+$row2 = mysqli_fetch_assoc($result3);
+?>
+<?php include("header.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,7 +149,9 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
           <span class="login100-form-title p-b-34 p-t-27">
             Log in
           </span>
-          
+          <input type="hidden" value=<?php echo $row1['t_id']; ?> name="t_id">
+          <input type="hidden" value=<?php echo $row2['s_id']; ?> name="s_id">
+
 
            <span class="login100-form-title p-b-34 p-t-27"> <label>I am a :&nbsp; </label>  <input name="user_type" type="radio"  value="hometutor" required> Home Tutor &nbsp;<input name="user_type"  type="radio" value="student" required> Student:  &nbsp;<input name="user_type"  type="radio" value="admin" required>  Admin</span>
 
@@ -198,4 +211,4 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
 
 </body>
 </html>
-<?php include("includes/footer.php");?>
+<?php include("footer.php");?>

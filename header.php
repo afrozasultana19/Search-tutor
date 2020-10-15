@@ -1,8 +1,19 @@
+<?php require_once 'connection.php'; 
+ 
+?>
+
 <?php 
-session_start();
+if(!isset($_SESSION)) 
+    {     //SESSION START 
+        session_start(); 
+    
+  
+  }
     if(isset($_SESSION['user_tchr'])){ 
              $user_tchr = $_SESSION['user_tchr'];
              $user_std ="";
+            
+  
            }
    elseif(isset($_SESSION['user_stdnt'])){ 
              $user_tchr = "";
@@ -11,10 +22,7 @@ session_start();
     $user_tchr = "";
    $user_std ="";
 
-
-
  }
-    
   ?>
 
 
@@ -85,13 +93,14 @@ session_start();
       </li>
       <?php
       if($user_tchr){
-         echo ' <li class="nav-item">
-                   <a class="nav-link" href="profile.php">Tutor:'.$user_tchr.'</a>
-                </li>' ;
+        $id = isset($_GET['t_id']);
+         echo "<li class='nav-item'>
+         <a class='nav-link' href='tutor-profile.php'>Tutor:".$user_tchr."</a>
+                </li>" ;
       }
       if($user_std){
         echo ' <li class="nav-item">
-                   <a class="nav-link" href="profile.php">Student:'.$user_std.'</a>
+                   <a class="nav-link" href="#">Student:'.$user_std.'</a>
                 </li>' ;
       }
        

@@ -1,11 +1,8 @@
- <?php
-include("connection.php");?>
-<?php
-include("includes/header.php");?>
+<?php include("header.php");?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Homepage</title>
+<title>Homepage</title>
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -14,8 +11,8 @@ include("includes/header.php");?>
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/th.css">
 
-
 </head>
+	
 <body>
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
@@ -47,5 +44,5 @@ include("includes/header.php");?>
  include("blog.php");
 ?>
 <?php
- include("includes/footer.php");
+ include("footer.php");
 ?>

@@ -1,39 +1,55 @@
-<?php include("includes/header.php");?>
-<?php require_once 'connection.php';
-?>
+<?php include("header.php");?>
+<?php require_once 'connection.php';?>
 <?php
 if(isset($_POST["submit"])){
 
-$tutor_fullname= $_POST['fname'] ;
-$tutor_username= $_POST['uname'] ;
-$tutor_dob= $_POST['dob'] ;
-$tutor_gender= $_POST['gender'] ;
-$city= $_POST['city'] ;
-$state= $_POST['state'] ;
-$email= $_POST['email'] ;
-$pass1= $_POST['pass'] ;
-$confirmpass= $_POST['pass'] ;
-
-$sql="INSERT INTO tbl_user_as_tutor(fname,uname,dob,gender,city,state,email,pass1,pass2) VALUES('$tutor_fullname','$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$email','$pass1','$confirmpass')";
-$result=mysqli_query($conn,$sql);
-if($result){
-
-    if($pass1!=$confirmpass){
-    echo "password and confirmpass do not match!</strong>
-  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-    <span aria-hidden='true'>&times;</span>
-  </button>
-</div>";
+    $tutor_fullname= $_POST['fname'] ;
+    $tutor_username= $_POST['uname'] ;
+    $tutor_dob= $_POST['dob'] ;
+    $tutor_gender= $_POST['gender'] ;
+    $city= $_POST['city'] ;
+    $state= $_POST['state'] ;
+    $email= $_POST['email'] ;
+    $pass1= $_POST['pass'] ;
+    $confirmpass= $_POST['pass1'] ;
+    $phone =$_POST['Contactnumber'];
+if(empty( $tutor_fullname) || empty($tutor_username) || empty($tutor_dob) || empty($tutor_gender) || empty($city) ||
+empty($state) ||  empty($email) || empty($pass1) || empty($confirmpass) || empty($phone)){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				<span class="sr-only">Close</span>
+			</button>
+			<strong>field is empty!</strong>
+		</div>';
 }
-    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-  <strong>successfully added!</strong>
-  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-    <span aria-hidden='true'>&times;</span>
-  </button>
-</div>";
-header("location:login.php");
- }
+else{
+    $sql="INSERT INTO tbl_user_as_tutor(fname,uname,dob,gender,city,state,email,pass1,pass2,contact_num) VALUES('$tutor_fullname','$tutor_username','$tutor_dob','$tutor_gender','$city','$state','$email','$pass1','$confirmpass','$phone')";
+    $result=mysqli_query($conn,$sql);
+    if($result){
+    
+        if($pass1!=$confirmpass){
+        echo "password and confirmpass do not match!</strong>
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+      </button>
+    </div>";
+    }
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+      <strong>successfully added!</strong>
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+      </button>
+    </div>";
+    header("location:login.php");
+     }
+    }
+
 }
+?>
+<?php $sql2 = "SELECT * FROM tbl_user_as_tutor";
+$result2 = mysqli_query($conn,$sql2) or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($result2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,12 +87,13 @@ header("location:login.php");
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Tutor Info</h2>
-                    <form method="POST">
+                    <form method="POST" action="">
+                    <input type="hidden" value=<?php echo $row['t_id']; ?> name="t_id">
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="FullName" name="fname">
+                            <input class="input--style-3" type="text" placeholder="FullName" id="validationServer01" name="fname">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="User-Name" name="uname">
+                            <input class="input--style-3" type="text" placeholder="User-Name" id="validationServerUsername" name="uname">
                         </div>
                         <div class="input-group">
                             <input class="input--style-3 js-datepicker" type="date" placeholder="Birthdate" name="dob">
@@ -94,21 +111,24 @@ header("location:login.php");
                             </div>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" name="email">
+                            <input class="input--style-3" type="email" placeholder="Email" id="inputEmail3" name="email">
                         </div>
                          <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="City" name="city">
+                            <input class="input--style-3" type="text" placeholder="City" id="validationServer03" name="city">
                         </div>
                          <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="State" name="state">
+                            <input class="input--style-3" type="text" placeholder="State"  id="validationServer04" name="state">
                         </div>
                         <div class="input-group">
                             <input class="input--style-3" type="password" placeholder="password" name="pass">
                         </div><div class="input-group">
-                            <input class="input--style-3" type="password" placeholder="Confirm password" name="pass">
+                            <input class="input--style-3" type="password" placeholder="Confirm password" name="pass1">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Phone" name="Contactnumber">
                         </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit" name="submit">Submit</button>
+                        <button class="btn btn--pill btn--green" type="submit" name="submit">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -128,4 +148,4 @@ header("location:login.php");
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
-<?php include("includes/footer.php");?>
+<?php include("footer.php");?>

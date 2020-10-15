@@ -1,5 +1,5 @@
 <?php
-include("includes/header.php");?>
+include("header.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@ include("includes/header.php");?>
         background-image: url("pic/depositphotos_85604526-stock-illustration-triangle-blue-background-with-light.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-      )
+      
      }
  </style>
 </head>
@@ -131,5 +131,5 @@ include("includes/header.php");?>
  include("blog.php");
 ?>
 <?php
- include("includes/footer.php");
+ include("footer.php");
 ?>

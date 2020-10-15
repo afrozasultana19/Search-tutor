@@ -1,4 +1,4 @@
-<?php include("includes/header.php");?>
+<?php include("header.php");?>
 <?php require("connection.php");?>
 <?php
 if(isset($_POST["submit"])){
@@ -134,4 +134,4 @@ header("location:login.php");
 
 </html>
 <!-- end document-->
-<?php include("includes/footer.php");?>
+<?php include("footer.php");?>

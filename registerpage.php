@@ -1,7 +1,7 @@
 <?php
 include("connection.php"); ?>
 <?php
-include("includes/header.php"); ?>
+include("header.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@ include("includes/header.php"); ?>
         background-image: url("pic/blue-3d-modern-background-design_53876-87397.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-      )
+      
      }
  </style>
       </head>
@@ -37,5 +37,5 @@ include("includes/header.php"); ?>
 <?php
  include("blog.php");
 
- include("includes/footer.php");
+ include("footer.php");
 ?>
