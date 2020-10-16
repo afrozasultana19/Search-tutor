@@ -82,8 +82,8 @@ if(isset($_POST["insert"]))
 <br>
 <div id="mySidenav" class="sidenav align-right">
   <a href="tutor_details.php" id="about">About</a>
-  <a href="find_tutor.php" id="blog">Search Tution</a>
-  <a href="tutor-profile-info.php" id="projects">Settings</a>
+  <a href="find_tuitions.php" id="blog">Search Tution</a>
+  <a href="tutor-profile-info.php" id="projects">Tutor details</a>
 </div>
 </div>
 <div class="card text-left justify-content-center   col-md-8">
@@ -94,7 +94,7 @@ if(isset($_POST["insert"]))
     <tbody>
 <?php
               echo '<form action="" method="POST" enctype="multipart/form-data">';
-              echo '<input type="hidden" value='.$row['t_id'].' name="t_id">';
+              echo '<input type="hidden" value='.$row['t_id'].' name="id">';
               echo '		   
              <tr>
               <td><img src= "data:image/jpeg;base64,'.base64_encode($row['pic']).'" height="300" width="300" class="rounded-circle" alt="image"><h1><strong>'.$row['fname'].'</strong></h1></td>

@@ -90,6 +90,7 @@ $sql="SELECT * FROM admin WHERE fullname='$user' AND password='$pass'";
     <span aria-hidden="true">&times;</span>
   </button>
 </div>';
+header("location:adminpage.php");
   }
   else{
      echo "<script>Invalid</script>";
@@ -165,14 +166,6 @@ $row2 = mysqli_fetch_assoc($result3);
             <input class="input100" type="password" name="pass1" placeholder="Password">
             <span class="focus-input100" data-placeholder="&#xf191;"></span>
           </div>
-
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Remember me
-            </label>
-          </div>
-
           <div class="container-login100-form-btn">
             <button class="login100-form-btn" name="login_user">
               Login

@@ -2,10 +2,161 @@
 <?php include("header.php");?>
 <?php
  require_once 'connection.php'; ?>
+     
+ <?php
+ if(isset($_POST['search'])){
+  $gender= $_POST['gender'];
+  $education = $_POST['educations'];
+  $institute = $_POST['institute'];
+  $location = $_POST['location'];
+  if($gender =="" && $education =="" && $education =="" && $institute == "" && $location == "" && 
+  $location == "")
+  {
+      echo '<h3>Result Not Found</h3>';
+  }
+  if($gender  && $education =="" && $institute == "" && $location == "" ){
+    $sql="SELECT * FROM tbl_user_as_tutor  JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND gender='$gender'";
+    $result1 = mysqli_query($conn,$sql);
+    $nums=mysqli_num_rows($result1);
+    $row1 = mysqli_fetch_assoc($result1);
+    if($row1){
+      echo '
+     <div class= "container-fluid">
+      <form method="POST">
+      <input type="hidden" value="'. $row1['t_id'].'"  name="t_id">
+        <figure class="col-md-4">
+          <a href="#" data-size="">
+          <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+          </a>
+        </figure>
+        <div class="course-details">                                            
+        </div>
+         <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+         <div class="course-footer clearfix"> ';
+         echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+        echo' </div>';
+    echo'</form>
+    </div>';
+  
+    }
+  
+ 
+  }
+  if($gender == "" &&  $education   && $institute == "" && $location == "" ){
+    $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND levelstudy='$education'";
+    $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  if($nums>0){$row1 = mysqli_fetch_assoc($result1);
+    if($row1){
+      echo '
+      <div class= "container-fluid">   
+      <form method="POST">
+        <figure class="col-md-4">
+          <a href="#" data-size="">
+          <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+          </a>
+        </figure>
+        <div class="course-details">                                            
+        <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+        <p>"'.$row1['About'].'" </p>
+         </div>
+         <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+         <div class="course-footer clearfix"> ';
+         echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+        echo' </div>';
+    echo'</form>';
+  
+    }}
+  
+
+  }
+  if($gender == "" &&   $education =="" && $institute  && $location == "" ){
+    $sql="SELECT * FROM tbl_user_as_tutor  NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND   institute='$institute'";
+  
+    $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  $row1 = mysqli_fetch_assoc($result1);
+  if($row1){
+    echo ' 
+    <div class= "container-fluid">        
+    <form method="POST">
+      <figure class="col-md-4">
+        <a href="#" data-size="">
+        <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+        </a>
+      </figure>
+      <div class="course-details">                                            
+      <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+      <p>"'.$row1['About'].'" </p>
+       </div>
+       <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+       <div class="course-footer clearfix"> ';
+       echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+      echo' </div>';
+  echo'</form> </div></div>';
+
+  }
+}
+  if($gender == "" &&   $education ==""  &&  $institute == "" &&  $location){
+   $sql= "SELECT * FROM tbl_user_as_tutor  NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND  location='$location'";
+   $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  $row1 = mysqli_fetch_assoc($result1);
+  if($row1){
+    echo '  
+    <div class= "container-fluid">       
+    <form method="POST">
+      <figure class="col-md-4">
+        <a href="#" data-size="">
+        <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+        </a>
+      </figure>
+      <div class="course-details">                                            
+      <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+      <p>"'.$row['About'].'" </p>
+       </div>
+       <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+       <div class="course-footer clearfix"> ';
+       echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+      echo' </div>';
+  echo'</form>';
+
+  }
+ }
+if($gender  && $education && $institute && $location){
+  $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id  ";
+  $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  $row1 = mysqli_fetch_assoc($result1);
+  if($row1){
+    echo '
+   <div class= "container-fluid">     
+    <form method="POST">
+    <input type="hidden" value='.$row['t_id'].' name="t_id">
+      <figure class="col-md-4">
+        <a href="#" data-size="">
+        <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+        </a>
+      </figure>
+      <div class="course-details">                                            
+      <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+      <p>"'.$row1['About'].'" </p>
+       </div>
+       <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+       <div class="course-footer clearfix"> ';
+       echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+      echo' </div>';
+  echo'</form>';
+
+  }
+}
+
+}
+  ?>
   <?php 
    $id = isset($_GET['t_id']) ? $_GET['t_id'] : 0;
- $sql = "SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id";
- $result = mysqli_query($conn,$sql);
+ $sql1 = "SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id";
+ $result = mysqli_query($conn,$sql1);
  if(mysqli_num_rows($result)>0){
  
  ?> 
@@ -56,17 +207,15 @@
                 
         
          }
+        }
 
      ?>
       </div>
-                
-<?php
- }
- ?>                                  
+                                
 <div class="sidebar col-md-4">
 						  <div class="widget clearfix"> <hr class="top-zero">
                                 <h3 class="widget-title">Let's find the best tutors</h3>                                   
-    <form method="get" action="tutors.php?">     
+    <form method="POST" action="">     
 	<select class="form-control" name="gender">
 	<option selected="selected" value="">Tutors Gender</option>
     <option value="">All</option>
@@ -86,79 +235,9 @@
 	<option  value="Higher Secondary">Higher Secondary</option>
     <option  value="Secondary">Secondary</option>
   </select>                                  
-    <input type="text" class="form-control" placeholder="Tutors Institute (eg. BUET, Dhaka University)" name="institute" value="">  
-	<input type="text" class="form-control" placeholder="Tuition Area (eg. Gulshan, Banani)" name="location" value="">	
-	<select name="city" style="width: 100%;" class="form-control">        
-		<option value="" selected="selected">
-          District        </option> 
-		<option value="BAGERHAT"> BAGERHAT </option>
-		<option value="BANDARBAN"> BANDARBAN </option>
-		<option value="BARGUNA"> BARGUNA </option>
-		<option value="BARISAL"> BARISAL </option>
-		<option value="BHOLA"> BHOLA </option>
-		<option value="BOGURA"> BOGURA </option>
-		<option value="BRAHMANBARIA"> BRAHMANBARIA </option>
-		<option value="CHANDPUR"> CHANDPUR </option>
-		<option value="CHAPAI NABABAGANJ"> CHAPAI NABABAGANJ </option>
-		<option value="CHATTOGRAM"> CHATTOGRAM </option>
-		<option value="CHUADANGA"> CHUADANGA </option>
-		<option value="COMILLA"> COMILLA </option>
-		<option value="COX'S BAZAR"> COX'S BAZAR </option>
-		<option value="DHAKA"> DHAKA </option>
-		<option value="DINAJPUR"> DINAJPUR </option>
-		<option value="FARIDPUR"> FARIDPUR </option>
-		<option value="FENI"> FENI </option>
-		<option value="GAIBANDHA"> GAIBANDHA </option>
-		<option value="GAZIPUR"> GAZIPUR </option>
-		<option value="GOPALGONJ"> GOPALGONJ </option>
-		<option value="HABIGANJ"> HABIGANJ </option>
-		<option value="JAMALPUR"> JAMALPUR </option>
-		<option value="JESSORE"> JESSORE </option>
-		<option value="JHALOKATI"> JHALOKATI </option>
-		<option value="JHENAIDAHA"> JHENAIDAHA </option>
-		<option value="JOYPURHAT"> JOYPURHAT </option>
-		<option value="KHAGRACHHARI"> KHAGRACHHARI </option>
-		<option value="KHULNA"> KHULNA </option>
-		<option value="KISHORGONJ"> KISHORGONJ </option>
-		<option value="KURIGRAM"> KURIGRAM </option>
-		<option value="KUSHTIA"> KUSHTIA </option>
-		<option value="LAKSHMIPUR"> LAKSHMIPUR </option>
-		<option value="LALMONIRHAT"> LALMONIRHAT </option>
-		<option value="MADARIPUR"> MADARIPUR </option>
-		<option value="MAGURA"> MAGURA </option>
-		<option value="MANIKGONJ"> MANIKGONJ </option>
-		<option value="MAULVI BAZAR"> MAULVI BAZAR </option>
-		<option value="MEHERPUR"> MEHERPUR </option>
-		<option value="MUNSHIGONJ"> MUNSHIGONJ </option>
-		<option value="MYMENSINGH"> MYMENSINGH </option>
-		<option value="NAOGAON"> NAOGAON </option>
-		<option value="NARAIL"> NARAIL </option>
-		<option value="NARAYANGONJ"> NARAYANGONJ </option>
-		<option value="NARSINGDI"> NARSINGDI </option>
-		<option value="NATORE"> NATORE </option>
-		<option value="NETROKONA"> NETROKONA </option>
-		<option value="NILPHAMARI"> NILPHAMARI </option>
-		<option value="NOAKHALI"> NOAKHALI </option>
-		<option value="PABNA"> PABNA </option>
-		<option value="PANCHAGARH"> PANCHAGARH </option>
-		<option value="PATUAKHALI"> PATUAKHALI </option>
-		<option value="PIROJPUR"> PIROJPUR </option>
- <option value="RAJBARI"> RAJBARI </option>
- <option value="RAJSHAHI"> RAJSHAHI </option>
- <option value="RANGAMATI"> RANGAMATI </option>
- <option value="RANGPUR"> RANGPUR </option>
- <option value="SATKHIRA"> SATKHIRA </option>
- <option value="SHARIATPUR"> SHARIATPUR </option>
- <option value="SHERPUR"> SHERPUR </option>
- <option value="SIRAJGANJ"> SIRAJGANJ </option>
- <option value="SUNAMGANJ"> SUNAMGANJ </option>
- <option value="SYLHET"> SYLHET </option>
- <option value="TANGAIL"> TANGAIL </option>
- <option value="THAKURGAON"> THAKURGAON </option>  
- </select>
-	
-
-<button type="submit" class="btn btn-primary btn-full"><i class="fa fa-search"></i> Search Tutors</button>
+    <input type="text" class="form-control" placeholder="Tutors Institute " name="institute" value="">  
+	<input type="text" class="form-control" placeholder="Tuition Area" name="location" value="">	
+<button type="submit" class="btn btn-primary btn-full" name="search"><i class="fa fa-search"></i> Search Tutors</button>
  </form>                                
                            </div> 
                       </div>
@@ -176,8 +255,8 @@
 
 <?php
  include("blog.php");
-
+        
  include("footer.php");
 ?>
 
-
+      

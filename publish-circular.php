@@ -51,18 +51,8 @@ if($result){
 </div>";
  }  
   
-
-   
     
 }
-}
-else{
-  echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-  <strong>you have to login first!</strong>
-  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-    <span aria-hidden='true'>&times;</span>
-  </button>
-</div>";
 }
 ?>
 
@@ -95,14 +85,14 @@ else{
 			<form class="big-contact-form" action="" method="post" autocomplete="off">
 <div class="fl-right"><h3><small>Already have a parent account? <a href="login.php">Login First</a></small></h3></div>
 <p>
-  <input class="form-control" name="username" placeholder="User Name (5 to 15 Character)" value="" />  
+  <input class="form-control" name="username" placeholder="User Name " value="" />  
 </p>
-<p><input class="form-control" name="email" type="email" placeholder="Enter Your Email (Verification required)" value="" /> 
+<p><input class="form-control" name="email" type="email" placeholder="Enter Your Email " value="" /> 
 </p>
 <p> 
-  <input class="form-control" type="password" name="pass_1" placeholder="Choose Your Password (8 to 16 Character)" value="" /></p>
+  <input class="form-control" type="password" name="pass_1" placeholder="Choose Your Password " value="" /></p>
 <p>
-  <input class="form-control" type="password" name="pass_2" placeholder="Reapeat Password (Same as Password field)" value=""/>
+  <input class="form-control" type="password" name="pass_2" placeholder="Repeat Password" value=""/>
 </p>
 <input class="form-control" type="text" name="fullname" placeholder="Enter Your Full Name" value=""/>
 <input type="text" class="form-control" name="phone_no" placeholder="Enter Your Phone/Mobile" value="" />
@@ -179,7 +169,6 @@ else{
  <label>Circular Details:</label>
  <textarea class="form-control" placeholder="Circular Details (50 to 500 character)" name="c_details"></textarea>
  </p>
-<p class="form-control"> <input name="terms" type="checkbox"  value="1"> I accept the <a href="#">terms & conditions.</a> </p>
 <button type="submit" name="publish_circular" class="btn btn-primary"> Publish Circular </button> 
 
 

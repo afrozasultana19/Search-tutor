@@ -31,16 +31,17 @@ if(mysqli_num_rows($result)>0)
     while($row=mysqli_fetch_array($result))
     {
       echo "<div class='clm'";
-      echo "<input type='hidden' value='".$row['id']. "' name='id/'>";
+      echo '<form method="POST">';
+     echo' <input type="hidden" value="'. $row['id'].'" name="id">';
       echo'<div class="authorbox">
       <div class="site-publisher clearfix"> 
          <h4>'.$row['cir_title'].'</h4>
            <p>'.$row['details'].'</p>
        <div class="fl-left"><span class="green" itemprop="addressLocality"> <i class="fa fa-globe"></i>'.$row['street'].'</span><br> 
        <i class="fa fa-user"></i> Posted by : <span itemprop="name">'.$row['u_name'].'</span> <br>
-       <i class="fa fa-clock-o"></i>'.$row['post_time'].'</div>
-       <div class="fl-right"><a href="#id=834" class="fl-right btn btn-info">View Details</a></div>
-       </div>
+       <i class="fa fa-clock-o"></i>'.$row['post_time'].'</div>';
+       echo "<td><a href='students.php?id=".$row['id']." 'class='btn btn-full btn-green'>View details</a></td></form>" ;
+     echo  '  </div>
    </div>';
      echo"</div>";
     }

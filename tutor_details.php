@@ -83,14 +83,14 @@ if (isset($_POST["delete"])){
 <?php
 echo "<form method='POST' action=''>";
 echo'
-<input type="hidden" value='. $row['t_id'].' name="t_id">
+<input type="hidden" value='. $row['t_id'].' name="id">
 <span class="form-control">Full Name  :'.$row['fname'].'</span>
 <span class="form-control">Gender : '.$row['gender'].'</span>
 <span class="form-control">Date of Birth : '.$row['dob'].'</span>
 <span class="form-control">Highest Education : '.$row['levelstudy'].'</span>
 <span class="form-control">Major/ Group/ Subject : '.$row['dept'].'</span>
 <span class="form-control">Institute Name : '.$row['institute'].'</span>
-<span class="form-control">About : '.$row['About'].'</span>
+<span class="form-control"><p>About : '.$row['About'].'</p></span>
 
 
 

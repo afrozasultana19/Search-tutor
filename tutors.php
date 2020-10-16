@@ -1,14 +1,7 @@
 <?php require_once 'connection.php';
- $id = isset($_GET['t_id']);
-
+ $id = isset($_GET['id']) ? $_GET['id']: 0;
 $sql = "SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND t_id=($id)";
 $result = mysqli_query($conn,$sql);
-if($result){
-    echo " success";
-} else{
-    echo "error";
-}
-
   $row = mysqli_fetch_assoc($result);
  ?>
 <?php include("header.php");?>
@@ -32,8 +25,6 @@ if($result){
      }
  </style>
 </head>
-
-
 <body>
     <div class="container1">
 <div class="content blog-list">
@@ -64,7 +55,7 @@ echo'
 <span class="form-control">Expected Salary : '.$row['salary'].'</span>		
 
                         </div>';
-       echo "<td><a href='#?id=".$row['t_id']." 'class='btn btn-warning'>Apply</a></td>";
+       echo "<td><a href='apply_by_student.php' class='btn btn-warning'>Apply</a></td>";
 
                         
 echo "</form>";                        

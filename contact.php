@@ -1,6 +1,6 @@
 <?php include("header.php");?>
-
-
+<?php require("connection.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,24 +25,11 @@
             <div class="container">
                 <div class="boxed boxedp4">
 					<div class="container">
-          <form action="" method=post>
-            
-              <input type="text"  name="address" placeholder="Enter Address" class="form-control">
-              <button type="submit" name="submit">Submit</button>
-          </form>
 
-          <?php 
-              if(isset($_POST["submit"]))
-              {
-                  $address = $_POST["address"];
-                  $address = str_replace("  ","+",$address);
-                  ?>
-
-
-                  <iframe width="100%" height="500" src="https://maps.google.com/maps?q=,<?php echo $address; ?>&output=embed"></iframe>
-                    <?php
-              }
-         ?>
+                    <div class="map">
+					   			 <iframe src="https://www.google.com/maps/embed?pb=Chandgaon+C.D.A+Abashik+Elaka+Jame+Moshjid/@22.3509249,91.817813,14z/data=!4m15!1m9!4m8!1m3!2m2!1d91.8415345!2d22.3290534!1m3!2m2!1d91.8464789!2d22.372587!3m4!1s0x30ad279e75616ab3:0xe501a0c780adfb6c!8m2!3d22.372587!4d91.8464789" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+					   		</div>             
+        
           </div>
 
                     <div class="row contactv2 text-center">
@@ -68,30 +55,12 @@
                             <div class="small-box">
                                 <i class="flaticon-share wow fadeIn"></i>
                                 <h4>Be Social</h4>
-                                <small>Twitter : @hometutorbd</small>
+                                <small>Twitter : @searchtutorbd</small>
                                 <small>Facebook : /searchtutorbangladesh</small>
                             </div><!-- end small-box -->
                         </div><!-- end col -->
                     </div><!-- end contactv2 -->
 
-                    <div class="row">  <div class="col-md-6 col-md-offset-3">  </div>
-                        <div class="col-md-6 col-md-offset-3">
-                            <div class="section-title text-center">
-                                <h3>Contact Form</h3>
-                                <p>For any Advertisement, Membership query, Feedback, Support Request  Please contact us via contact form.</p>
-								
-                            </div><!-- end title -->
-                            
-                            <form class="big-contact-form" role="search" action="" method="post">
-                                <input type="text" name="name" class="form-control" placeholder="Enter your name.." value="">
-                                <input type="email" class="form-control" placeholder="Enter email.." name="email" value="">
-                                <input type="text" class="form-control" placeholder="Your phone.." name="phone" value="">
-                                <input type="text" class="form-control" placeholder="Subject.." name="subject" value="">
-                                <textarea class="form-control" name="message" placeholder="Message goes here.."></textarea>
-                                <button type="submit" name="support" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div><!-- end col -->
-                    </div><!-- end row -->
                 </div><!-- end container -->
             </div>
         </section>
