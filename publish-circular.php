@@ -85,7 +85,7 @@ if($result){
 			<form class="big-contact-form" action="" method="post" autocomplete="off">
 <div class="fl-right"><h3><small>Already have a parent account? <a href="login.php">Login First</a></small></h3></div>
 <p>
-  <input class="form-control" name="username" placeholder="User Name " value="" />  
+  <input class="form-control" name="username"  type="text" placeholder="User Name " value="" />  
 </p>
 <p><input class="form-control" name="email" type="email" placeholder="Enter Your Email " value="" /> 
 </p>

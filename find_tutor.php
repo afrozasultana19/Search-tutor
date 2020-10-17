@@ -9,11 +9,20 @@
   $education = $_POST['educations'];
   $institute = $_POST['institute'];
   $location = $_POST['location'];
-  if($gender =="" && $education =="" && $education =="" && $institute == "" && $location == "" && 
-  $location == "")
-  {
-      echo '<h3>Result Not Found</h3>';
+  if($gender == "" &&  $education   && $institute == "" && $location == "" ){
+    $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND levelstudy='$education'";
+    $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  if($nums>0){$row1 = mysqli_fetch_assoc($result1);
+    if($row1){
+      echo '
+     <h1> result not found</h1>';
+  
+    }}
+  
+
   }
+ 
   if($gender  && $education =="" && $institute == "" && $location == "" ){
     $sql="SELECT * FROM tbl_user_as_tutor  JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND gender='$gender'";
     $result1 = mysqli_query($conn,$sql);
@@ -29,7 +38,9 @@
           <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
           </a>
         </figure>
-        <div class="course-details">                                            
+        <div class="course-details">
+        <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+        <p>"'.$row1['About'].'" </p>                                            
         </div>
          <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
          <div class="course-footer clearfix"> ';
@@ -42,34 +53,7 @@
   
  
   }
-  if($gender == "" &&  $education   && $institute == "" && $location == "" ){
-    $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND levelstudy='$education'";
-    $result1 = mysqli_query($conn,$sql);
-  $nums=mysqli_num_rows($result1);
-  if($nums>0){$row1 = mysqli_fetch_assoc($result1);
-    if($row1){
-      echo '
-      <div class= "container-fluid">   
-      <form method="POST">
-        <figure class="col-md-4">
-          <a href="#" data-size="">
-          <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
-          </a>
-        </figure>
-        <div class="course-details">                                            
-        <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
-        <p>"'.$row1['About'].'" </p>
-         </div>
-         <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
-         <div class="course-footer clearfix"> ';
-         echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
-        echo' </div>';
-    echo'</form>';
-  
-    }}
-  
-
-  }
+ 
   if($gender == "" &&   $education =="" && $institute  && $location == "" ){
     $sql="SELECT * FROM tbl_user_as_tutor  NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id AND   institute='$institute'";
   
@@ -113,7 +97,7 @@
       </figure>
       <div class="course-details">                                            
       <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
-      <p>"'.$row['About'].'" </p>
+      <p>"'.$row1['About'].'" </p>
        </div>
        <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
        <div class="course-footer clearfix"> ';
@@ -123,6 +107,60 @@
 
   }
  }
+ if($gender  && $education && $institute == "" && $location == ""){
+  $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id  ";
+  $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  $row1 = mysqli_fetch_assoc($result1);
+  if($row1){
+    echo '
+   <div class= "container-fluid">     
+    <form method="POST">
+    <input type="hidden" value='.$row1['t_id'].' name="t_id">
+      <figure class="col-md-4">
+        <a href="#" data-size="">
+        <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+        </a>
+      </figure>
+      <div class="course-details">                                            
+      <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+      <p>"'.$row1['About'].'" </p>
+       </div>
+       <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+       <div class="course-footer clearfix"> ';
+       echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+      echo' </div>';
+  echo'</form>';
+
+  }
+}
+if($gender  && $education && $institute && $location == ""){
+  $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id  ";
+  $result1 = mysqli_query($conn,$sql);
+  $nums=mysqli_num_rows($result1);
+  $row1 = mysqli_fetch_assoc($result1);
+  if($row1){
+    echo '
+   <div class= "container-fluid">     
+    <form method="POST">
+    <input type="hidden" value='.$row1['t_id'].' name="t_id">
+      <figure class="col-md-4">
+        <a href="#" data-size="">
+        <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">
+        </a>
+      </figure>
+      <div class="course-details">                                            
+      <h4> <a href="tutors.php?id='.$row1['t_id'].'" title="'.$row1['fname'].'">'.$row1['fname'].'</a></h4>
+      <p>"'.$row1['About'].'" </p>
+       </div>
+       <div class="course-location clearfix"> <span class="pull-left"><small><i class="fa fa-globe"></i>"'.$row1['location'].'"</small></span> <span class="pull-right"> <small><i class="fa fa-eye"></i> 1</small></span></div>
+       <div class="course-footer clearfix"> ';
+       echo "<td><a href='tutors.php?id=".$row1['t_id']." 'class='btn btn-full btn-green'>View details</a></td>";                                           
+      echo' </div>';
+  echo'</form>';
+
+  }
+}
 if($gender  && $education && $institute && $location){
   $sql="SELECT * FROM tbl_user_as_tutor NATURAL JOIN tutor_info WHERE tbl_user_as_tutor.t_id=tutor_info.id  ";
   $result1 = mysqli_query($conn,$sql);
@@ -132,7 +170,7 @@ if($gender  && $education && $institute && $location){
     echo '
    <div class= "container-fluid">     
     <form method="POST">
-    <input type="hidden" value='.$row['t_id'].' name="t_id">
+    <input type="hidden" value='.$row1['t_id'].' name="t_id">
       <figure class="col-md-4">
         <a href="#" data-size="">
         <img src= "data:image/jpeg;base64,'.base64_encode($row1['pic']).'" height="300" width="300" class="rounded-circle" alt="image">

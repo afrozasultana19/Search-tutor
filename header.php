@@ -94,12 +94,12 @@ if(!isset($_SESSION))
       <?php
       if($user_tchr){
         $id = isset($_GET['t_id']);
-         echo "<li class='nav-item'>
+         echo "<li class='nav-item' style='color:blue;'>
          <a class='nav-link' href='tutor-profile.php'>Tutor:".$user_tchr."</a>
                 </li>" ;
       }
       if($user_std){
-        echo ' <li class="nav-item">
+        echo ' <li class="nav-item" style="color:blue;">
                    <a class="nav-link" href="student-profile.php">Student:'.$user_std.'</a>
                 </li>' ;
       }

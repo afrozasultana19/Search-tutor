@@ -21,9 +21,9 @@
               </li>
               <li><form method="POST"><button class="btn btn--pill btn--green" type="submit" name="tutor">Tutors</button></form>
               </li>
-              <li><form method="POST"><button class="btn btn--pill btn--green" type="submit" name="student">Tutors</button></form>
+              <li><form method="POST"><button class="btn btn--pill btn--green" type="submit" name="student">Students</button></form>
               </li>
-              <li><form method="POST"><button class="btn btn--pill btn--green" type="submit" name="applied">Tutors</button></form>
+              <li><form method="POST"><button class="btn btn--pill btn--green" type="submit" name="applied">review aplied</button></form>
               </li>
             </ul>
           </div>

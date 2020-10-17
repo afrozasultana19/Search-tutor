@@ -83,7 +83,7 @@ if(isset($_POST["insert"]))
 <div id="mySidenav" class="sidenav align-right">
   <a href="tutor_details.php" id="about">About</a>
   <a href="find_tuitions.php" id="blog">Search Tution</a>
-  <a href="tutor-profile-info.php" id="projects">Tutor details</a>
+  <a href="tutor-profile-info.php" id="projects">Tutor Info Collect</a>
 </div>
 </div>
 <div class="card text-left justify-content-center   col-md-8">

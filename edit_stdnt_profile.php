@@ -38,6 +38,7 @@ if(isset($_POST["update"])){
       </button>
       <strong>Updated Successfully!</strong>
   </div>';
+  header("location:student-profile.php");
     }
     else{
       echo'<button type="button" class="close" data-dismiss="alert" aria-label="Close">

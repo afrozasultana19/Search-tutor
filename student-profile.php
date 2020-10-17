@@ -36,9 +36,8 @@ $result = mysqli_query($conn,$sql);
   <div class="row">
 <div class="col-md-4">
 <div id="mySidenav" class="sidenav align-right">
-  <a href="circular_details.php" id="about">About</a>
   <a href="find_tutor.php" id="blog">Search Tutor</a>
-  <a href="edit_stdnt_profile.php" id="projects">Settings</a>
+  <a href="edit_stdnt_profile.php" id="projects">Update</a>
   <a href="publish-circular.php" id="contact">Publish circular</a>
 
 </div>

@@ -37,7 +37,7 @@ if(isset($_POST['apply'])){
   <div class="card bg-primary|secondary|success|danger|warning|info|light|dark text-primary|secondary|success|danger|warning|info|light|dark">
   <div class="card-header">Apply</div>
   <div class="card-body">
-    <h5 class="card-title">riview after apply</h5>
+    <h5 class="card-title">Review after apply</h5>
     <form method= "POST">
 
   <div class="form-group">
